@@ -1,0 +1,21 @@
+#body
+	#workspace(ng-app="app" ng-controller="Hi as hi")
+		div
+			div {{ phrase }}
+			div
+				input(ng-model="phrase")
+			div
+				button(ng-click="say(hello)") say hello
+				|   			
+				button(ng-click="say(goodbye)") say goodbye
+
+		div
+			| People:
+			div
+				form(ng-submit="addUser()")
+					input(ng-model="newUserName")
+				ul
+					li(ng-repeat="human in people") 
+						button(ng-click="removeUser(human)") x
+						|  
+						span {{human.name}} {{human.surname}} {{human.lastname}}

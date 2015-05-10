@@ -1,0 +1,34 @@
+{
+	"name": "webby",
+	"version": "0.0.1",
+	"dependencies": {
+		"coffee-script": "*"
+	},
+	"devDependencies": {
+
+		"gulp": "*",
+		"webpack": "*",
+		"webpack-core": "",
+
+		"exports-loader": "*",
+		"imports-loader": "*",
+		"coffee-loader": "*",
+		"stylus-loader": "*",
+		"jade-loader": "*",
+		"style-loader": "*",
+		"css-loader": "*",
+		"raw-loader": "*",
+
+		"gulp-util": "*",
+		"gulp-jade": "*",
+		"gulp-plumber": "*",
+		"gulp-load-plugins": "*",
+
+		"browser-sync": "*",
+		"run-sequence": "*",
+		"optimist": "*",
+		"minimist": "*",
+		"lodash": "*",
+		"rimraf": "*"
+	}
+}
