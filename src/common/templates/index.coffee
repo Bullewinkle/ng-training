@@ -1,4 +1,3 @@
-module.exports = 
-	head: require './header.jade'
-	body: require './body.jade'
-	foot: require './footer.jade'
+req = require.context "./pages", true, /^.*\.jade$/
+
+module.exports = req

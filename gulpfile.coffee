@@ -48,11 +48,16 @@ gulp.task 'watch', (cb) ->
 			if (err) then throw new util.PluginError 'webpack', err
 			util.log '[webpack]', stats.toString(colors: true)
 
+gulp.task 'server', (cb) ->
+	require './server'
 
 gulp.task 'default', ->
 	sequence.apply @, [
 		'jade'
 		'webpack'
-		'browser-sync'
-		'watch'
+		[
+			'server'
+			'browser-sync'
+			'watch'
+		]
 	]

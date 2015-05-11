@@ -1,5 +1,24 @@
 controllers =
-	'Hi': ($scope) ->
+	'Header': ($scope) ->
+		$scope.menu = [
+			href: '/'
+			text: 'Home'
+		,
+			href: '/posts'
+			text: 'Posts'
+		,
+			href: '/about'
+			text: 'About'
+		,
+			href: '/contacts'
+			text: 'Contacts'
+		,
+			href: '/test'
+			text: 'Test page'
+		]
+
+	'Hi': ($scope, $http) ->
+		$scope.$http = $http
 		$scope.hello = 'Hello'
 		$scope.goodbye = 'Goodbye'
 		$scope.phrase = $scope.hello
@@ -34,5 +53,9 @@ controllers =
 		$scope.removeUser = ->
 			$scope.people.splice @$index, 1
 
+	'NavigationController': ($scope, $route, $routeParams, $location) ->
+		$scope.$route = $route
+		$scope.$location = $location
+		$scope.$routeParams = $routeParams
 
 module.exports =  controllers

@@ -13,7 +13,8 @@ module.exports =
 		"#{SRC}/index.coffee"
 
 	output:
-		path: DIST
+		path: path.join(DIST, 'assets')
+		publicPath: "#{DIST}/assets/[hash]/"
 		filename: 'bundle.js'
 
 	module:
@@ -29,6 +30,14 @@ module.exports =
 			loader: 'jade'
 		,
 			test: /\.coffee$/
-			loader: 'coffee'			
-
-		]
+			loader: 'coffee'
+		,
+			test: /\.jpg$/
+			loader: "file-loader"
+		,
+			test: /\.png$/
+			loader: "url-loader?mimetype=image/png"
+		# ,
+		# 	test: /\.js$/
+		# 	loader: 'babel-loader'
+		]	
