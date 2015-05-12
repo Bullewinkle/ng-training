@@ -1,3 +1,5 @@
+path = require 'path'
+
 controllers =
 	'Header': ($scope) ->
 		$scope.menu = [
@@ -15,6 +17,9 @@ controllers =
 		,
 			href: '/test'
 			text: 'Test page'
+		,
+			href: '/wat?'
+			text: 'Wat?'
 		]
 
 	'Hi': ($scope, $http) ->
@@ -57,5 +62,17 @@ controllers =
 		$scope.$route = $route
 		$scope.$location = $location
 		$scope.$routeParams = $routeParams
+
+	'PostsController' : ->
+		# images = require.context "/src/assets/images", true, /^.*\.jpg$/
+		# console.log images
+		@postName = 'posts.postName'
+
+	'AboutController' : () ->
+
+	'ContactsController' : () ->
+
+	'TestController' : () ->
+
 
 module.exports =  controllers

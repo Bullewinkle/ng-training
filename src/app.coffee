@@ -18,17 +18,26 @@ app.config ($routeProvider, $locationProvider) ->
 		controller: 'NavigationController'
 		template: appTemplates('./home.jade') page: 'home'
 	.when '/posts',
-		controller: 'NavigationController'
+		controller: 'PostsController'
+		controllerAs: 'c'
 		template: appTemplates('./posts.jade') page: 'posts'
 	.when '/about',
-		controller: 'NavigationController'
+		controller: 'AboutController'
+		controllerAs: 'c'
 		template: appTemplates('./about.jade') page: 'about'
 	.when '/contacts',
-		controller: 'NavigationController'
+		controller: 'ContactsController'
+		controllerAs: 'c'
 		template: appTemplates('./contacts.jade') page: 'contacts'
 	.when '/test',
-		controller: 'NavigationController'
+		controller: 'TestController'
+		controllerAs: 'c'
 		template: appTemplates('./test.jade') page: 'test'
+
+	.otherwise
+		controller: 'NavigationController'	
+		controllerAs: 'c'
+		template: appTemplates('./not-found.jade')
 
 	$locationProvider.html5Mode
 		enabled: true

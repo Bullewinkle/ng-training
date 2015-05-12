@@ -9,13 +9,19 @@ module.exports =
 	cache: true
 	debug: true
 
+	context: SRC
+
 	entry:
-		"#{SRC}/index.coffee"
+		"./index.coffee"
 
 	output:
 		path: path.join(DIST, 'assets')
-		publicPath: "#{DIST}/assets/[hash]/"
+		publicPath: "/assets/"
 		filename: 'bundle.js'
+				
+		# path: path.join(DIST, 'assets-[hash]')
+		# publicPath: "/assets-[hash]/"
+		# chunkFilename: "[hash]-test"
 
 	module:
 
@@ -37,7 +43,34 @@ module.exports =
 		,
 			test: /\.png$/
 			loader: "url-loader?mimetype=image/png"
-		# ,
-		# 	test: /\.js$/
-		# 	loader: 'babel-loader'
+		,
+			test: /\.jsx$/
+			loader: 'babel-loader'
+	
 		]	
+	resolve:
+		root: SRC
+		fallback: __dirname
+		extensions: ["", ".webpack.js", ".web.js", ".js", ".coffee", ".jsx"]
+
+	node:
+		console: true
+		global: true
+		process: true
+		Buffer: true
+		__filename: true
+		__dirname: true
+
+	recordsPath: path.join(__dirname, 'webpak_records.json')
+
+	# node
+	# 	console: true or false
+	# 	global: true or false
+	# 	process: true, "mock" or false
+	# 	Buffer: true or false
+	# 	__filename: true (real filename), "mock" ("/index.js") or false
+	# 	__dirname: true (real dirname), "mock" ("/") or false
+	# 	<node buildin>: true, "mock", "empty" or false
+
+
+
