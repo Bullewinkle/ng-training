@@ -22,6 +22,7 @@
     "gulp-plumber": "",
     "gulp-util": "",
     "html-loader": "",
+    "html-webpack-template": "^2.0.0",
     "imports-loader": "",
     "jade-loader": "",
     "lodash": "",
@@ -34,6 +35,7 @@
     "stylus-loader": "",
     "url-loader": "^0.5.5",
     "webpack": "",
-    "webpack-core": ""
+    "webpack-core": "",
+    "json-server": ""
   }
 }

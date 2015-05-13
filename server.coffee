@@ -1,7 +1,7 @@
 path = require 'path'
 express = require 'express'
 app = express()
-
+console.log 'server',__dirname
 assets = path.join(__dirname, "dist/assets")
 
 app.use '/assets', express.static assets

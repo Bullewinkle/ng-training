@@ -14,17 +14,17 @@ module.exports =
 	entry:
 		"./index.coffee"
 
-	resolve:
-		root: SRC
-		fallback: path.join SRC, '../'
-		extensions: ["", ".webpack.js", ".web.js", ".js", ".coffee", ".jsx"]		
-
 	output:
 		path: path.join(DIST, 'assets')
 		publicPath: "/assets/"
 		filename: 'bundle.js'
+				
+		# path: path.join(DIST, 'assets-[hash]')
+		# publicPath: "/assets-[hash]/"
+		# chunkFilename: "[hash]-test"
 
 	module:
+
 		loaders: [
 			test: /\.css$/
 			loaders: ['style','css']
@@ -48,8 +48,19 @@ module.exports =
 			loader: 'babel-loader'
 	
 		]	
+	resolve:
+		root: SRC
+		fallback: __dirname
+		extensions: ["", ".webpack.js", ".web.js", ".js", ".coffee", ".jsx"]
 
-	plugins: []
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: './index.html'
+			title: 'Template test'
+			filename: path.join(DIST, 'index.html')
+			mobile: true
+		})
+	]
 
 	node:
 		console: true
