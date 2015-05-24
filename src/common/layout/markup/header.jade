@@ -1,4 +1,4 @@
-header#header(ng-controller="HeaderController as header") HEADER
+header#header(ng-controller="NavigationController as nav") HEADER
 	ul.menu
-		li.menu-item(ng-repeat="link in menu")
+		li.menu-item(ng-repeat="link in nav.hlinks")
 			a(href="{{link.href}}") {{link.text}}
